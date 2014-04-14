@@ -2,6 +2,7 @@
 using Microsoft.Practices.Prism.Events;
 using Ninject;
 using Ninject.Extensions.Factory;
+using TemplateProject.ViewModels;
 
 
 namespace TemplateProject
@@ -22,6 +23,8 @@ namespace TemplateProject
             
             //binds to interfaces.
             _kernel.Bind<IEventAggregator>().To<EventAggregator>().InSingletonScope();
+            _kernel.Bind<IMainViewModel>().To<MainViewModel>().InSingletonScope();
+            
             
             Current.MainWindow = this._kernel.Get<MainWindow>();
             Current.MainWindow.Show();

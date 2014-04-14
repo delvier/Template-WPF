@@ -1,6 +1,4 @@
-﻿using System;
-
-/// <summary>
+﻿/// <summary>
 /// Ninject factory reference exampale.
 /// IOC performed by factory extension.
 /// </summary>
@@ -13,9 +11,10 @@ public class Foo
         this.barFactory = barFactory;
     }
 
-    public void Do(int x, int y)
+    public Bar Do(int x, int y)
     {
         var bar = this.barFactory.CreateBar(x, y);
+        return bar;
     }
 }
 
@@ -26,7 +25,12 @@ public interface IBarFactory
 
 public class Bar
 {
+    public int Height { get; set; }
+    public int Length { get; set; }
+
     public Bar(int y, int x)
     {
+        Height = y;
+        Length = x;
     }
 }
