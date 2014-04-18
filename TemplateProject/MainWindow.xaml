@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Label Grid.ColumnSpan="2" Content="{Binding TestLabel}"></Label>
+        <Label Grid.ColumnSpan="2" Content="{Binding TestLabel}" Margin="0,0,0.4,0.4"></Label>
+        <Label Content="{Binding TestModuleLabel}" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

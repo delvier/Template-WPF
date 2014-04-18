@@ -3,6 +3,7 @@ using Microsoft.Practices.Prism.Events;
 using Ninject;
 using Ninject.Extensions.Factory;
 using TemplateProject.ViewModels;
+using EngineModuleProject;
 
 
 namespace TemplateProject
@@ -17,11 +18,13 @@ namespace TemplateProject
         {
             base.OnStartup(e);
 
-            _kernel = new StandardKernel();
+            _kernel = new StandardKernel( 
+                    new EngineModule()
+                );
+
+            // factory exampale
             _kernel.Bind<IBarFactory>().ToFactory();
-            //kernel = new StandardKernel(new Object(), new Object()); modules inside.
-            
-            //binds to interfaces.
+
             _kernel.Bind<IEventAggregator>().To<EventAggregator>().InSingletonScope();
             _kernel.Bind<IMainViewModel>().To<MainViewModel>().InSingletonScope();
             

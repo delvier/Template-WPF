@@ -166,6 +166,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EngineModule\EngineModuleProject.csproj">
+      <Project>{dbbfa606-cbc0-4bd7-8fa2-3374ed4bb953}</Project>
+      <Name>EngineModuleProject</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
