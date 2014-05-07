@@ -1,16 +1,13 @@
 ﻿using System.Windows;
-using Microsoft.Practices.Prism.Events;
 using Ninject;
 using Ninject.Extensions.Factory;
 using TemplateProject.ViewModels;
 using EngineModuleProject;
+using Microsoft.Practices.Prism.PubSubEvents;
 
 
 namespace TemplateProject
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         private IKernel _kernel;
