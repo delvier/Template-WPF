@@ -1,20 +1,26 @@
-﻿using EngineModuleProject;
+﻿using System.Collections.Generic;
+using EngineModuleProject;
+using Microsoft.Practices.Prism.Mvvm;
+using TemplateProject.Infrastructure;
+
 namespace TemplateProject.ViewModels
 {
-    public class MainViewModel : IMainViewModel
+    public class MainViewModel : BindableBase
     {
-        public string TestLabel { get; set; }
-        public string TestModuleLabel { get; set; }
+        private readonly ITestRepository _testRepository;
 
-        public MainViewModel(Foo foo, IEngine engine)
+        public MainViewModel(ITestRepository testRepository, IEngine engine)
         {
-            TestLabel = foo.Do(1, 2)
-                           .Height.ToString();
-
-            TestModuleLabel = engine.EngineValue.ToString();
+            _testRepository = testRepository;
         }
 
-
-        
+        public IEnumerable<Test> Tests
+        {
+            get
+            {
+                return _testRepository.GetAll();
+                
+            }
+        }
     }
 }

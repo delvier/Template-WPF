@@ -105,7 +105,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Infrastructure\ITestRepository.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Infrastructure\Test.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -115,7 +117,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Foo.cs" />
-    <Compile Include="ViewModels\IMainViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

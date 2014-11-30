@@ -1,13 +1,13 @@
 ﻿using System.Windows;
+using TemplateProject.ViewModels;
 
 namespace TemplateProject
 {
     public partial class MainWindow : Window
     {
-        public MainWindow(IMainViewModel viewModel)
+        public MainWindow(MainViewModel viewModel)
         {
-            IMainViewModel mainViewModel = viewModel;
-            this.DataContext = mainViewModel;
+            if (viewModel != null) DataContext = viewModel;
             InitializeComponent();
         }
     }

@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using Ninject;
 using Ninject.Extensions.Factory;
-using TemplateProject.ViewModels;
+using TemplateProject.Infrastructure;
 using EngineModuleProject;
 using Microsoft.Practices.Prism.PubSubEvents;
 
@@ -23,10 +23,12 @@ namespace TemplateProject
             _kernel.Bind<IBarFactory>().ToFactory();
 
             _kernel.Bind<IEventAggregator>().To<EventAggregator>().InSingletonScope();
-            _kernel.Bind<IMainViewModel>().To<MainViewModel>().InSingletonScope();
+
+            // domain 
+            _kernel.Bind<ITestRepository>().To<TestRepository>();
+            _kernel.Bind<MainWindow>().ToSelf();
             
-            
-            Current.MainWindow = this._kernel.Get<MainWindow>();
+            Current.MainWindow = _kernel.Get<MainWindow>();
             Current.MainWindow.Show();
         }
     }
